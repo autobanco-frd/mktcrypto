@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MKTcrypto - Lightning Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 px-4 text-center">Payment</h2>
+<div class="size-10"></div> <!-- Spacer for balance -->
+</header>
+<!-- Main Content -->
+<main class="flex-1 relative overflow-hidden flex flex-col items-center">
+<!-- Card Display Section -->
+<div class="p-6 w-full max-w-md">
+<div class="relative group">
+<!-- Base Card -->
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-2xl bg-slate-100 dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700">
+<div class="w-full aspect-[1.586/1] bg-gradient-to-br from-primary to-blue-900 relative p-6 flex flex-col justify-between" data-alt="Abstract dark blue and purple metallic crypto card texture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxHZ-E3Z9NmJ54Th22K_IQvYx0FYU2hpOmazMVOZZ3x4jfNtQIV0oI5lVdGXOsu2jW-iNAZDUR_hSoeB3mE3gAYUS3sP6r4EGtVT78ku2bwgmKdqyl5xFEhq6Vl_uQfcSMJyeg9lPWiIWiS4g0kbuqJyA6qkHV3sAqIsujguwYMtZ0KRTmapaKDt7Uctyq6kBUExPEBHUQnT2KouXIRzw_cCqhTlqpklhqa4PBv9pSA9EueKbgsP4UB2mPW1bSDa43CF03cHgrYgg');">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl text-white/90">contactless</span>
+<div class="text-white/90 font-bold italic text-xl">MKTcrypto</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white/60 text-xs tracking-widest uppercase">Card Holder</p>
+<p class="text-white text-lg font-medium tracking-wider">SATOSHI NAKAMOTO</p>
+</div>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-1 p-4">
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">MKTcrypto.store Card</p>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-green-500 animate-pulse"></div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal">Active State</p>
+</div>
+</div>
+</div>
+<!-- 90% Opacity Overlay for Lightning Payment -->
+<div class="absolute inset-0 bg-background-dark/95 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center p-6 z-10">
+<div class="w-full flex flex-col items-center gap-6">
+<!-- QR Code Container -->
+<div class="bg-white p-4 rounded-lg shadow-lg">
+<div class="w-48 h-48 bg-slate-100 flex items-center justify-center border-4 border-white" data-alt="Lightning Network QR Code for payment" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2I1aTtS_JcFdHBrDA_9OKVsuu5hQX7bkKnSoWvhYSlAjMYHJzIYp9tUVaqllXln2bKUSuufypwNCDvJl-OtneW81czgajpT8WeU70-AusQt3zTr-6Au0n2CyuoNjFGplcezP6Z_eg-0k5TtL2EidAKz0XK7PBC1dO1ueK_S1KgZ5w6UWyQnDHpK89edTERk_lfZLeU46GDfpgqtL90AQ6gjBEF5k0FfE1pgCagfJazxNcw3piAr0bdBpJ9sVJb3-FqlxGyOYZJ-w');">
+<span class="material-symbols-outlined text-slate-900 text-6xl">qr_code_2</span>
+</div>
+</div>
+<div class="text-center space-y-1">
+<p class="text-slate-100 text-sm font-medium">Lightning Network Payment</p>
+<p class="text-primary text-xl font-bold">2,450 SATS</p>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-3">
+<button class="w-full bg-[#FFD700] hover:bg-[#FFC000] text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg">
+<span class="material-symbols-outlined font-bold">account_balance_wallet</span>
+                                Open in Wallet
+                            </button>
+<button class="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 py-2 transition-colors">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span class="text-sm font-medium uppercase tracking-wider">Copy Bolt11</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Transaction Details Section -->
+<div class="w-full max-w-md px-6 pb-24">
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">Transaction Details</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-800">
+<span class="text-slate-600 dark:text-slate-400">Network</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm">bolt</span> Lightning
+                    </span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-800">
+<span class="text-slate-600 dark:text-slate-400">Status</span>
+<span class="text-primary font-medium">Awaiting Payment...</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-800">
+<span class="text-slate-600 dark:text-slate-400">Fee</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">1 SAT</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900 px-4 pb-6 pt-3 z-50">
+<div class="max-w-md mx-auto flex justify-between">
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">credit_card</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Cards</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">history</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">History</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Settings</p>
+</a>
+</div>
+</nav>
+</body></html>

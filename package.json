@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "poetry": "^0.6.29"
+    "qrcode": "^1.5.4"
   }
 }

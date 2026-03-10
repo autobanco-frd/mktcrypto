@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "market-cards-backend"
+name = "mktcrypto-backend"
 version = "0.1.0"
-description = "Backend for Lumina Market Cards - Lego Architecture"
-authors = ["Architect <architect@lumina.dev>"]
+description = "Backend for MKTcrypto.store - High-Performance Terminal"
+authors = ["Autobanco-frd <autobanco@mktcrypto.store>"]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.9,<3.13" 
 fastapi = "^0.104.1"
 uvicorn = {extras = ["standard"], version = "^0.24.0"}
 sqlalchemy = "^2.0.23"
@@ -17,6 +17,10 @@ httpx = "^0.25.1"           # Para hablar con la API de Alby
 cryptography = "^41.0.5"    # Para el AES-256 de los payloads
 python-jose = {extras = ["cryptography"], version = "^3.3.0"} # Para JWT/Auth
 python-multipart = "^0.0.6" # Para recibir logins de formularios
+# --- BASE DE DATOS Y CACHE ---
+psycopg2-binary = "^2.9.9"  # Driver PostgreSQL
+asyncpg = "^0.29.0"         # Async PostgreSQL driver
+redis = "^5.0.1"            # Cliente Redis
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"

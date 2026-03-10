@@ -1,0 +1,19 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Octagon shape -->
+  <path d="M6 0.5 L10 0.5 L15.5 6 L15.5 10 L10 15.5 L6 15.5 L0.5 10 L0.5 6 Z" 
+        fill="#020617" 
+        stroke="#06b6d4" 
+        stroke-width="1"/>
+  
+  <!-- MKT text -->
+  <text x="8" y="10" 
+        font-family="JetBrains Mono, monospace" 
+        font-size="4" 
+        font-weight="bold" 
+        text-anchor="middle" 
+        fill="#00ff00">MKT</text>
+  
+  <!-- Lightning bolt -->
+  <path d="M7 4 L9 6 L8 6 L9 8 L7 6 L8 6 Z" 
+        fill="#06b6d4"/>
+</svg>

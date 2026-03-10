@@ -1,0 +1,27 @@
+.glass-badge {
+  background: rgba(8, 145, 178, 0.12);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(8, 145, 178, 0.25);
+}
+
+.card-shadow {
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(15, 23, 42, 0.04) 25%, 
+    rgba(15, 23, 42, 0.08) 50%, 
+    rgba(15, 23, 42, 0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+.skeleton-bg {
+  background-color: rgba(15, 23, 42, 0.06);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

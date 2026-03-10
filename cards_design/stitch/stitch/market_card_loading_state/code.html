@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MKTcrypto.store - Loading State</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0B0E14",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .animate-shimmer {
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0.03) 25%, 
+                rgba(255, 255, 255, 0.08) 50%, 
+                rgba(255, 255, 255, 0.03) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        .skeleton-bg {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Header Section -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1">MKTcrypto.store</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-slate-900 dark:text-slate-100 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</div>
+</div>
+<!-- Skeleton Content Area -->
+<main class="flex-1 p-4 space-y-6">
+<!-- Skeleton Card 1 -->
+<div class="bg-background-dark rounded-lg overflow-hidden border border-slate-800/50 shadow-2xl">
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start gap-4">
+<!-- Header Badge Skeleton -->
+<div class="flex justify-between items-center">
+<div class="w-24 h-5 skeleton-bg animate-shimmer rounded-full"></div>
+<div class="w-8 h-8 skeleton-bg animate-shimmer rounded-full"></div>
+</div>
+<!-- Body Image Skeleton -->
+<div class="w-full aspect-video skeleton-bg animate-shimmer rounded-lg" data-alt="Skeleton loading state for product image showing abstract geometric pattern"></div>
+<!-- Text Content Skeleton -->
+<div class="flex w-full flex-col gap-3 py-2">
+<div class="w-3/4 h-6 skeleton-bg animate-shimmer rounded-md"></div>
+<div class="w-1/2 h-4 skeleton-bg animate-shimmer rounded-md opacity-60"></div>
+<!-- Footer Action Skeleton -->
+<div class="flex items-center justify-between mt-4">
+<div class="w-20 h-6 skeleton-bg animate-shimmer rounded-md"></div>
+<div class="w-32 h-10 bg-primary/20 animate-shimmer rounded-xl"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Skeleton Card 2 -->
+<div class="bg-background-dark rounded-lg overflow-hidden border border-slate-800/50 shadow-2xl">
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start gap-4">
+<div class="flex justify-between items-center">
+<div class="w-20 h-5 skeleton-bg animate-shimmer rounded-full"></div>
+</div>
+<div class="w-full aspect-video skeleton-bg animate-shimmer rounded-lg" data-alt="Skeleton loading state for secondary card image"></div>
+<div class="flex w-full flex-col gap-3 py-2">
+<div class="w-2/3 h-6 skeleton-bg animate-shimmer rounded-md"></div>
+<div class="w-1/3 h-4 skeleton-bg animate-shimmer rounded-md opacity-60"></div>
+<div class="flex items-center justify-between mt-4">
+<div class="w-16 h-6 skeleton-bg animate-shimmer rounded-md"></div>
+<div class="w-32 h-10 bg-primary/20 animate-shimmer rounded-xl"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<div class="sticky bottom-0 z-50 flex gap-2 border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/90 backdrop-blur-md px-4 pb-6 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined fill-1">storefront</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Store</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">pie_chart</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Portfolio</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">public</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Market</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Settings</p>
+</a>
+</div>
+</div>
+</body></html>

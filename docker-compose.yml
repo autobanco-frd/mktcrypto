@@ -1,18 +1,74 @@
 
-
 services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-mktcrypto}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mktcrypto_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-mktcrypto}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mktcrypto_network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    networks:
+      - mktcrypto_network
+    restart: unless-stopped
+
   backend:
     build: ./backend
-    ports:
-      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-mktcrypto}:${POSTGRES_PASSWORD:-mktcrypto_pass}@db/${POSTGRES_DB:-mktcrypto}
+      - REDIS_URL=redis://redis:6379
+      - ALBY_WEBHOOK_SECRET=${ALBY_WEBHOOK_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
     volumes:
       - ./backend:/app
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - db
+      - redis
+    networks:
+      - mktcrypto_network
+    restart: unless-stopped
 
   frontend:
     build: ./frontend
-    ports:
-      - "5174:5174"
     volumes:
       - ./frontend:/app
-    command: npm run dev -- --host 0.0.0.0 --port 5174
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+    networks:
+      - mktcrypto_network
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - mktcrypto_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  caddy_data:
+
+networks:
+  mktcrypto_network:
+    driver: bridge
